@@ -1,30 +1,30 @@
 package FC2;
-class TNode{
+class tNode{
     int data;
-    TNode right, left;
-    TNode(int x){
+    tNode right, left;
+    tNode(int x){
         data = x;
         right =  left = null;
     }
-    TNode(int x, TNode ll, TNode rr){
+    tNode(int x, tNode ll, tNode rr){
         data = x;
         left = ll;
         right = rr;
     }
 }
 public class Tree {
-    TNode root;
+    tNode root;
 
     void inputTree(){
-        TNode A = new TNode(9, null, new TNode(0));
-        TNode B = new TNode(2, new TNode(4), A);
-        TNode C = new TNode(3, B, null);
-        TNode D = new TNode(5, new TNode(6), new TNode(2));
-        TNode E = new TNode(1, null, D);
-        TNode F = new TNode(7, E, null);
-        root = new TNode(8, C, F);
+        tNode A = new tNode(9, null, new tNode(0));
+        tNode B = new tNode(2, new tNode(4), A);
+        tNode C = new tNode(3, B, null);
+        tNode D = new tNode(5, new tNode(6), new tNode(2));
+        tNode E = new tNode(1, null, D);
+        tNode F = new tNode(7, E, null);
+        root = new tNode(8, C, F);
     }
-    void checkTree(TNode T) {
+    void checkTree(tNode T) {
         if (T != null) {
             System.out.print(" " + T.data);
             checkTree(T.left);
@@ -37,7 +37,7 @@ public class Tree {
         System.out.println();
     }
 
-    int numberNode(TNode T) {
+    int numberNode(tNode T) {
         if (T == null) {
             return 0;
         }else {
@@ -49,7 +49,7 @@ public class Tree {
         return numberNode(root);
     }
 
-    int sumNode(TNode T) {
+    int sumNode(tNode T) {
         if(T == null) {
             return 0;
         }else {
@@ -61,7 +61,7 @@ public class Tree {
         return sumNode(root);
     }
 
-    int sumNodeLa(TNode T) {
+    int sumNodeLa(tNode T) {
         if (T == null) {
             return 0;
         }else if (T.left == null && T.right == null) {
@@ -75,7 +75,7 @@ public class Tree {
         return sumNodeLa(root);
     }
 
-    int sumNodeTrong(TNode T) {
+    int sumNodeTrong(tNode T) {
         if((T == null)||(T.left == null && T.right == null)) {
             return 0;
         }else {
@@ -87,7 +87,7 @@ public class Tree {
         return sumNodeTrong(root);
     }
 
-    int countLe(TNode T) {
+    int countLe(tNode T) {
         if (T == null) {
             return 0;
         }else if (T.data %2 == 1 ){
@@ -101,7 +101,7 @@ public class Tree {
         return countLe(root);
     }
 
-    int countCon(TNode T ) {
+    int countCon(tNode T ) {
         if (T == null) {
             return 0;
         }else if (T.left != null || T.right != null){
