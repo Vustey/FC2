@@ -100,22 +100,12 @@ public class BinarySearchTree {
     }
 
     int countNumberNodeHaveTwoNode(tNode T){
-        if( T == null){
+        if(T.left == null && T.right == null){
             return 0;
-        }else if(T.left != null && T.right != null) {
+        }else {
             return 1 + countNumberNodeHaveTwoNode(T.left) + countNumberNodeHaveTwoNode(T.right);
-        }else{
-            return countNumberNodeHaveTwoNode(T.left) + countNumberNodeHaveTwoNode(T.right);
         }
     }
-
-//    int countNumberNodeHaveTwoNode(tNode T){
-//        if(T != null){
-//            return 0;
-//        }else {
-//            return 1 + countNumberNodeHaveTwoNode(T.left) + countNumberNodeHaveTwoNode(T.right);
-//        }
-//    }
     int countNodeHaveTwoNode(){
         return countNumberNodeHaveTwoNode(root);
     }
