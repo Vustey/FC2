@@ -18,99 +18,102 @@ class tNode {
 
 public class BinarySearchTree {
     tNode root;
-    void intputBST(){
+
+    void intputBST() {
         tNode A = new tNode(4, new tNode(5), new tNode(10));
         tNode B = new tNode(7, new tNode(11), new tNode(12));
-        root = new tNode(3,A,B);
+        root = new tNode(3, A, B);
     }
 
-    void duyettrungtu(tNode T){
-        if(T != null){
+    void duyettrungtu(tNode T) {
+        if (T != null) {
             duyettrungtu(T.left);
-            System.out.print(" " + T.data );
+            System.out.print(" " + T.data);
             duyettrungtu(T.right);
         }
     }
-    void duyethautu(tNode T){
-        if(T != null){
+
+    void duyethautu(tNode T) {
+        if (T != null) {
             duyethautu(T.left);
             duyethautu(T.right);
             System.out.print(" " + T.data);
         }
     }
 
-    void duyettientu(tNode T){
-        if(T != null){
-            System.out.print(" " +T.data);
+    void duyettientu(tNode T) {
+        if (T != null) {
+            System.out.print(" " + T.data);
             duyettientu(T.left);
             duyettientu(T.right);
         }
     }
 
-    int countNode(tNode T){
-        if (T == null){
+    int countNode(tNode T) {
+        if (T == null) {
             return 0;
-        }else{
+        } else {
             return 1 + countNode(T.left) + countNode(T.right);
         }
     }
 
-    int numberNode(){
+    int numberNode() {
         return countNode(root);
     }
 
-    int sumNumberNode(tNode T){
-        if(T == null){
+    int sumNumberNode(tNode T) {
+        if (T == null) {
             return 0;
-        }else{
+        } else {
             return T.data + sumNumberNode(T.left) + sumNumberNode(T.right);
         }
     }
 
-    int sumNode(){
+    int sumNode() {
         return sumNumberNode(root);
     }
 
-    int countNumberNodeLeaf(tNode T){
-        if(T == null){
+    int countNumberNodeLeaf(tNode T) {
+        if (T == null) {
             return 0;
-        }else if(T.left == null && T.right == null){
+        } else if (T.left == null && T.right == null) {
             return 1;
-        }else {
+        } else {
             return countNumberNodeLeaf(T.left) + countNumberNodeLeaf(T.right);
         }
     }
 
-    int countNodeLeaf(){
+    int countNodeLeaf() {
         return countNumberNodeLeaf(root);
     }
 
-    int sumNumberNodeLeaf(tNode T){
-        if(T == null){
+    int sumNumberNodeLeaf(tNode T) {
+        if (T == null) {
             return 0;
-        }else if (T.left == null && T.right == null){
+        } else if (T.left == null && T.right == null) {
             return T.data;
-        }else {
+        } else {
             return sumNumberNodeLeaf(T.left) + sumNumberNodeLeaf(T.right);
         }
     }
 
-    int sumNodeLeaf(){
+    int sumNodeLeaf() {
         return sumNumberNodeLeaf(root);
     }
 
-    int countNumberNodeHaveTwoNode(tNode T){
-        if(T.left == null && T.right == null){
+    int countNumberNodeHaveTwoNode(tNode T) {
+        if (T.left == null && T.right == null) {
             return 0;
-        }else {
+        } else {
             return 1 + countNumberNodeHaveTwoNode(T.left) + countNumberNodeHaveTwoNode(T.right);
         }
     }
-    int countNodeHaveTwoNode(){
+
+    int countNodeHaveTwoNode() {
         return countNumberNodeHaveTwoNode(root);
     }
 
-    void output(){
+    void output() {
         System.out.print("Trung tu ");
         duyettrungtu(root);
         System.out.println();
@@ -134,6 +137,6 @@ public class BinarySearchTree {
         System.out.println();
         System.out.print("Sum Number Node Leaf : " + bst.sumNodeLeaf());
         System.out.println();
-        System.out.println("Count Number Node Have Two Node : " +bst.countNodeHaveTwoNode());
+        System.out.println("Count Number Node Have Two Node : " + bst.countNodeHaveTwoNode());
     }
 }
