@@ -47,6 +47,79 @@ public class BinarySearchTree {
         }
     }
 
+    int countNode(tNode T){
+        if (T == null){
+            return 0;
+        }else{
+            return 1 + countNode(T.left) + countNode(T.right);
+        }
+    }
+
+    int numberNode(){
+        return countNode(root);
+    }
+
+    int sumNumberNode(tNode T){
+        if(T == null){
+            return 0;
+        }else{
+            return T.data + sumNumberNode(T.left) + sumNumberNode(T.right);
+        }
+    }
+
+    int sumNode(){
+        return sumNumberNode(root);
+    }
+
+    int countNumberNodeLeaf(tNode T){
+        if(T == null){
+            return 0;
+        }else if(T.left == null && T.right == null){
+            return 1;
+        }else {
+            return countNumberNodeLeaf(T.left) + countNumberNodeLeaf(T.right);
+        }
+    }
+
+    int countNodeLeaf(){
+        return countNumberNodeLeaf(root);
+    }
+
+    int sumNumberNodeLeaf(tNode T){
+        if(T == null){
+            return 0;
+        }else if (T.left == null && T.right == null){
+            return T.data;
+        }else {
+            return sumNumberNodeLeaf(T.left) + sumNumberNodeLeaf(T.right);
+        }
+    }
+
+    int sumNodeLeaf(){
+        return sumNumberNodeLeaf(root);
+    }
+
+    int countNumberNodeHaveTwoNode(tNode T){
+        if( T == null){
+            return 0;
+        }else if(T.left != null && T.right != null) {
+            return 1 + countNumberNodeHaveTwoNode(T.left) + countNumberNodeHaveTwoNode(T.right);
+        }else{
+            return countNumberNodeHaveTwoNode(T.left) + countNumberNodeHaveTwoNode(T.right);
+        }
+    }
+
+//    int countNumberNodeHaveTwoNode(tNode T){
+//        if(T != null){
+//            return 0;
+//        }else {
+//            return 1 + countNumberNodeHaveTwoNode(T.left) + countNumberNodeHaveTwoNode(T.right);
+//        }
+//    }
+    int countNodeHaveTwoNode(){
+        return countNumberNodeHaveTwoNode(root);
+    }
+
     void output(){
         System.out.print("Trung tu ");
         duyettrungtu(root);
@@ -56,11 +129,21 @@ public class BinarySearchTree {
         System.out.println();
         System.out.print("Tien tu ");
         duyettientu(root);
+        System.out.println();
     }
 
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
         bst.intputBST();
         bst.output();
+        System.out.print("Number Node : " + bst.numberNode());
+        System.out.println();
+        System.out.print("Sum Number Node : " + bst.sumNode());
+        System.out.println();
+        System.out.print("Count Number Node Leaf : " + bst.countNodeLeaf());
+        System.out.println();
+        System.out.print("Sum Number Node Leaf : " + bst.sumNodeLeaf());
+        System.out.println();
+        System.out.println("Count Number Node Have Two Node : " +bst.countNodeHaveTwoNode());
     }
 }
