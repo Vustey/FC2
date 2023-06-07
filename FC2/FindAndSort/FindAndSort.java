@@ -19,7 +19,9 @@ public class FindAndSort {
     }
 
     void copyArray() {
-        System.arraycopy(a, 0, b, 0, a.length);
+        for (int i = 0; i < a.length; i++) {
+            b[i] = a[i];
+        }
     }
 
     void output() {
@@ -68,14 +70,14 @@ public class FindAndSort {
 
     public static void main(String[] args) {
         FindAndSort findAndSort = new FindAndSort();
-        long t1,t2;
+        long t1, t2;
         findAndSort.random(5);
         t1 = System.currentTimeMillis();
         findAndSort.bubbleSort();
         findAndSort.output();
         t2 = System.currentTimeMillis();
         System.out.println();
-        System.out.println(t2-t1);
+        System.out.println(t2 - t1);
         findAndSort.copyArray();
         t1 = System.currentTimeMillis();
         findAndSort.selectSort();
@@ -83,6 +85,6 @@ public class FindAndSort {
         findAndSort.output();
         t2 = System.currentTimeMillis();
         System.out.println();
-        System.out.println(t2-t1);
+        System.out.println(t2 - t1);
     }
 }
