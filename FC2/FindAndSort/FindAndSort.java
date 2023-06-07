@@ -41,7 +41,7 @@ public class FindAndSort {
         for (int i = 0; i < n - 1; i++) {
             int newIndex = i;
             for (int j = i + 1; j < n; j++) {
-                if (a[j] < a[newIndex]) {
+                if (a[j] < a[newIndex] ) {
                     newIndex = j;
                 }
                 int temp = a[i];
