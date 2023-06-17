@@ -2,6 +2,8 @@ package FC2.FindAndSort;
 
 import java.util.*;
 
+import static java.lang.System.currentTimeMillis;
+
 public class FindAndSort {
     int[] a;
     int[] b;
@@ -20,7 +22,7 @@ public class FindAndSort {
 
     void copyArray() {
         for (int i = 0; i < a.length; i++) {
-            b[i] = a[i];
+            a[i] = b[i];
         }
     }
 
@@ -44,10 +46,10 @@ public class FindAndSort {
                 if (a[j] < a[newIndex] ) {
                     newIndex = j;
                 }
-                int temp = a[i];
-                a[i] = a[newIndex];
-                a[newIndex] = temp;
             }
+            int temp = a[i];
+            a[i] = a[newIndex];
+            a[newIndex] = temp;
         }
     }
 
@@ -61,7 +63,7 @@ public class FindAndSort {
                     a[j - 1] = temp;
                     check = true;
                 }
-                if (check) {
+                if (check == false) {
                     break;
                 }
             }
@@ -72,18 +74,18 @@ public class FindAndSort {
         FindAndSort findAndSort = new FindAndSort();
         long t1, t2;
         findAndSort.random(5);
-        t1 = System.currentTimeMillis();
+        t1 = currentTimeMillis();
         findAndSort.bubbleSort();
         findAndSort.output();
-        t2 = System.currentTimeMillis();
+        t2 = currentTimeMillis();
         System.out.println();
         System.out.println(t2 - t1);
         findAndSort.copyArray();
-        t1 = System.currentTimeMillis();
+        t1 = currentTimeMillis();
         findAndSort.selectSort();
         System.out.println();
         findAndSort.output();
-        t2 = System.currentTimeMillis();
+        t2 = currentTimeMillis();
         System.out.println();
         System.out.println(t2 - t1);
     }
